@@ -8,7 +8,7 @@ const PersianYears=({ start, end, onChange, currentYear }) => {
         years.push(<option value={start}>{persianNumbers(start)}</option>);
     }
     return (
-        <select name="" value={currentYear} id="persianYear" onChange={onChange} className="form-control">
+        <select value={currentYear} id="persianYear" onChange={onChange} className="form-control">
             {years}
         </select>
     )
