@@ -1,7 +1,6 @@
 import React from 'react';
 
 const PersianMonths=({ onChange, currentMonth }) => {
-    console.log(currentMonth);
     const months={
         1: "فروردین",
         2: "اردیبهشت",

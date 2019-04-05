@@ -29,14 +29,15 @@ class Calendar extends Component {
                     break;
                 }
                 else {
-                    let classess="";
+                    let classes=[];
                     if (currentYear===parseInt(year)&&currentMonth===parseInt(month)&&currentDay===date) {
-                        classess="today";
+                        classes.push("today");
                     }
                     if (column===6) {
-                        classess="friday";
+                        classes.push("friday");
                     }
-                    cells.push(<Cell className={classess}>{date}</Cell>);
+                    let classestoString=classes.join(' ');
+                    cells.push(<Cell className={classestoString}>{date}</Cell>);
                     date++;
                 }
             }
@@ -44,7 +45,6 @@ class Calendar extends Component {
         }
         return results;
     }
-    updateCalendar=(year, month) => { }
     updateWithYear=(evt) => {
         if (!evt.target.value) {
             return;
@@ -60,8 +60,7 @@ class Calendar extends Component {
     goToToday=(evt) => {
         evt.preventDefault();
         let [currentYear, currentMonth,]=this.persianDate.getToday();
-        this.setState({ year: currentYear });
-        this.setState({ month: currentMonth });
+        this.setState({ year: currentYear, month: currentMonth });
     }
     render() {
         let [currentYear, currentMonth,]=this.persianDate.getToday();
@@ -84,8 +83,6 @@ class Calendar extends Component {
             </React.Fragment>
         );
     }
-    componentDidMount() {
 
-    }
 }
 export default Calendar;
